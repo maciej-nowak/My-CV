@@ -1,6 +1,31 @@
 <resources>
     <string name="app_name">MyCV</string>
+
     <string name="title_about">About</string>
     <string name="title_experience">Experience</string>
     <string name="title_projects">Projects</string>
+
+    <string name="action_call_me">Call me</string>
+    <string name="action_message">Message</string>
+
+    <string name="skills">Skills</string>
+    <string name="interests">Interests</string>
+    <string name="full_name">Maciej Nowak</string>
+    <string name="occupation">Android Developer</string>
+
+    <string name="skills_details">I\'m Java Developer focused on Android platform and User Experience.
+        Hothead in mobile technologies. Placetag co-founder and Sealcode.org member.
+        I develop using Android Studio and Git control version.
+        Also I have a little bit experience in technologies and tools such as:
+        Python, C#, C++, HTML, CSS, Joomla, Photoshop.
+    </string>
+
+    <string name="interests_details">I discover the world by traveling, getting know the people,
+        eating new things and learning foreign languages.
+        Taking photo is the way to keep all memories in my mind.
+        Also I try to life healthy by cooking and playing sport especially football.
+        I\'m a big fan o AC Milan and Poland national team in every sport.
+        I listen to music every day and in free time watch movies.
+    </string>
+
 </resources>
