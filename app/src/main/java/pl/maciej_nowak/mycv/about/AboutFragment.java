@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import pl.maciej_nowak.mycv.R;
 
@@ -62,6 +63,28 @@ public class AboutFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == PermissionProvider.REQUEST_LOCATION_CODE) {
+            if (requestCode == PermissionProvider.REQUEST_CALL_CODE) {
+                if (PermissionProvider.arePermissionsProvided(grantResults))
+                    callAction();
+                else
+                    Toast.makeText(getContext(), R.string.accept_permissions, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void permissionAction(int permissionCode) {
+        if(PermissionProvider.arePermissionsGranted(getActivity(), permissionCode)) {
+            if(permissionCode == PermissionProvider.REQUEST_CALL_CODE)
+                callAction();
+        }
+        else if(PermissionProvider.isRequiredVersion()) {
+            requestPermissions(PermissionProvider.requiredPermissions(getActivity(), permissionCode), permissionCode);
+        }
+    }
+
     private void callAction() {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + PHONE_NUMBER));
@@ -70,6 +93,6 @@ public class AboutFragment extends Fragment {
 
     private void messageAction() {
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", EMAIL, null));
-        startActivity(Intent.createChooser(intent, "Send email..."));
+        startActivity(Intent.createChooser(intent, getContext().getString(R.string.send_mail)));
     }
 }

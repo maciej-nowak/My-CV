@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import pl.maciej_nowak.mycv.about.AboutFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_about:
-                    //todo attach about fragment
+                    replaceFragment(AboutFragment.newInstance(), AboutFragment.TAG);
                     return true;
                 case R.id.navigation_experience:
                     //todo attach experience fragment
