@@ -25,6 +25,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".navigate.NavigateActivity"></activity>
+
+        <service android:name=".navigate.location.GPSService" />
+
     </application>
 
 </manifest>

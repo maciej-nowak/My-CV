@@ -16,6 +16,8 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import pl.maciej_nowak.mycv.R;
@@ -88,6 +90,11 @@ public class NavigateFragment extends Fragment implements NavigateView {
         presenter.checkNetworkState();
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        presenter.stopFollowDistance();
+    }
 
     @Override
     public void displayMap(Coordinates coordinates) {
@@ -99,12 +106,16 @@ public class NavigateFragment extends Fragment implements NavigateView {
         mapController.setCenter(new GeoPoint(coordinates.getLatitude(), coordinates.getLongitude()));
         mapView.setMultiTouchControls(true);
         setMarker(mapView, coordinates);
+        presenter.followDistance();
     }
-
 
     @Override
     public void displayDistance(Location location) {
-
+        if(location != null) {
+            float[] result = new float[1];
+            Location.distanceBetween(coordinates.getLatitude(), coordinates.getLongitude(), location.getLatitude(), location.getLongitude(), result);
+            distanceText.setText(round(result[0], 2));
+        }
     }
 
     @Override
@@ -116,12 +127,12 @@ public class NavigateFragment extends Fragment implements NavigateView {
 
     @Override
     public void displayErrorDistance(String error) {
-
+        distanceText.setText(error);
     }
 
     @Override
-    public void onNetworkState(boolean isEnabled) {
-        if(isEnabled) {
+    public void onNetworkState(boolean isEnable) {
+        if(isEnable) {
             presenter.getMap();
         }
         else {
@@ -137,5 +148,19 @@ public class NavigateFragment extends Fragment implements NavigateView {
         itemizedOverlayItems.addItem(new OverlayItem(coordinates.getName(), coordinates.getName(),
                 new GeoPoint(coordinates.getLatitude(), coordinates.getLongitude())));
         mapView.getOverlays().add(itemizedOverlayItems);
+    }
+
+    private String round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+        if(value < 1000) {
+            BigDecimal bd = new BigDecimal(value);
+            bd = bd.setScale(0, RoundingMode.HALF_UP);
+            return bd.floatValue() + " m";
+        }
+        else {
+            BigDecimal bd = new BigDecimal(value / 1000);
+            bd = bd.setScale(places, RoundingMode.HALF_UP);
+            return bd.doubleValue() + " km";
+        }
     }
 }
