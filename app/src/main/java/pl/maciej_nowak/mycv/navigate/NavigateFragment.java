@@ -1,5 +1,6 @@
 package pl.maciej_nowak.mycv.navigate;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,14 +12,15 @@ import android.widget.TextView;
 import org.osmdroid.views.MapView;
 
 import pl.maciej_nowak.mycv.R;
+import pl.maciej_nowak.mycv.navigate.coordinates.Coordinates;
 
 /**
  * Created by Maciej on 19.06.2017.
  */
 
-public class NavigateFragment extends Fragment {
+public class NavigateFragment extends Fragment implements NavigateView {
 
-    public static final String TAG = "NavigateView";
+    public static final String TAG = "NavigateFragment";
 
     private View content, contentError;
     private MapView mapView;
@@ -68,4 +70,23 @@ public class NavigateFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void displayMap(Coordinates coordinates) {
+
+    }
+
+    @Override
+    public void displayDistance(Location location) {
+
+    }
+
+    @Override
+    public void displayError(String error) {
+
+    }
+
+    @Override
+    public void onNetworkState(boolean isEnable) {
+
+    }
 }
