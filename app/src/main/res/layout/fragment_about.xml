@@ -120,6 +120,19 @@
                 style="@style/about_text"
                 android:text="@string/interests_details"/>
 
+            <Button
+                android:id="@+id/navigate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="@dimen/about_button_padding"
+                android:paddingRight="@dimen/about_button_padding"
+                android:layout_marginTop="@dimen/about_button_margin_top"
+                style="@style/Widget.AppCompat.Button"
+                android:text="@string/action_explore"/>
+
         </LinearLayout>
 
     </LinearLayout>

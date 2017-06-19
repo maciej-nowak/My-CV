@@ -23,4 +23,8 @@
     <dimen name="project_image_padding">5dp</dimen>
     <dimen name="project_card_content_padding">10dp</dimen>
 
+    <dimen name="navigate_mapview_height">250dp</dimen>
+    <dimen name="navigate_description_padding_top">36dp</dimen>
+
+
 </resources>
