@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import pl.maciej_nowak.mycv.about.AboutFragment;
+import pl.maciej_nowak.mycv.experience.ExperienceFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(AboutFragment.newInstance(), AboutFragment.TAG);
                     return true;
                 case R.id.navigation_experience:
-                    //todo attach experience fragment
+                    replaceFragment(ExperienceFragment.newInstance(), ExperienceFragment.TAG);
                     return true;
                 case R.id.navigation_projects:
                     //todo attach projects fragment

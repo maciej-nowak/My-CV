@@ -18,6 +18,7 @@ public class ExperienceFragment extends Fragment {
     public static final String TAG = "EexperienceFragment";
 
     private RecyclerView recyclerView;
+    private ExperienceAdapter adapter;
 
     public ExperienceFragment() {
     }
@@ -32,6 +33,7 @@ public class ExperienceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adapter = new ExperienceAdapter(getContext());
         if (getArguments() != null) {
         }
     }
@@ -40,6 +42,7 @@ public class ExperienceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_experience, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.experience_container);
+        recyclerView.setAdapter(adapter);
         return view;
     }
 }

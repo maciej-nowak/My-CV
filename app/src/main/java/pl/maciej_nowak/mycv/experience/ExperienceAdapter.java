@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.maciej_nowak.mycv.R;
@@ -22,6 +23,11 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
 
     private Context context;
     private List<Experience> list;
+
+    public ExperienceAdapter(Context context) {
+        this.context = context;
+        this.list = setDefaultData();
+    }
 
     public ExperienceAdapter(Context context, List<Experience> list) {
         this.context = context;
@@ -46,6 +52,60 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    private List<Experience> setDefaultData() {
+        List<Experience> list = new ArrayList<>();
+
+        list.add(new Experience("Yanosik.pl",
+                "Android Developer",
+                "2017.03 - present",
+                "Poznań",
+                R.drawable.logo_yanosik));
+
+        list.add(new Experience("Sealcode.org",
+                "Member",
+                "2016.12 - present",
+                "Poznań",
+                R.drawable.logo_sealcode));
+
+        list.add(new Experience("Adam Mickiewicz University",
+                "Computer Science",
+                "2016.02 - 2017.06",
+                "Master thesis: Measuring and evaluation of productivity team development",
+                R.drawable.logo_uam));
+
+        list.add(new Experience("Poleng",
+                "Software Tester",
+                "2014.04 - 2014.05",
+                "Poznań",
+                R.drawable.logo_poleng));
+
+        list.add(new Experience("Adam Mickiewicz University",
+                "Computer Science, specialization: Algorithms and software engineering",
+                "2012.10 - 2016.02",
+                "Engineering thesis: Creating and designing mobile application for Android platform",
+                R.drawable.logo_uam));
+
+        list.add(new Experience("Novikov Restaurant",
+                "Runner",
+                "2012.05 - 2012.08",
+                "London",
+                R.drawable.logo_novikov));
+
+        list.add(new Experience("Opti-Bit",
+                "Computer Service Technician",
+                "2011.03 - 2011.03",
+                "Chodzież",
+                R.drawable.logo_optibit));
+
+        list.add(new Experience("Józef Wybicki Vocational Technical High School",
+                "Computer Science",
+                "2008.09 - 2012.05",
+                "",
+                R.drawable.logo_zslg));
+
+        return list;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
