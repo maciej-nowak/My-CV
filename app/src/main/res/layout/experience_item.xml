@@ -30,28 +30,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
-                style="@style/experience_item_title"/>
+                style="@style/item_title"/>
 
             <TextView
                 android:id="@+id/experience_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
-                style="@style/experience_item_subtitle"/>
+                style="@style/item_subtitle"/>
 
             <TextView
                 android:id="@+id/experience_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
-                style="@style/experience_item_extra"/>
+                style="@style/item_extra"/>
 
             <TextView
                 android:id="@+id/experience_extras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
-                style="@style/experience_item_extra"/>
+                style="@style/item_extra"/>
 
         </LinearLayout>
 
