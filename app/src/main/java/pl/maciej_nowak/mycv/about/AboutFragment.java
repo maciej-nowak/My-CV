@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import pl.maciej_nowak.mycv.R;
+import pl.maciej_nowak.mycv.navigate.NavigateActivity;
 
 /**
  * Created by Maciej on 19.06.2017.
@@ -22,7 +23,7 @@ public class AboutFragment extends Fragment {
     private final String PHONE_NUMBER = "+48533533524";
     private final String EMAIL = "kontakt@maciej-nowak.pl";
 
-    private Button call, message;
+    private Button call, message, navigate;
 
     public AboutFragment() {
     }
@@ -46,11 +47,12 @@ public class AboutFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
         call = (Button) view.findViewById(R.id.call_me);
         message = (Button) view.findViewById(R.id.message_me);
+        navigate = (Button) view.findViewById(R.id.navigate);
 
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callAction();
+                permissionAction(PermissionProvider.REQUEST_CALL_CODE);
             }
         });
         message.setOnClickListener(new View.OnClickListener() {
@@ -59,19 +61,29 @@ public class AboutFragment extends Fragment {
                 messageAction();
             }
         });
+        navigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                permissionAction(PermissionProvider.REQUEST_LOCATION_CODE);
+            }
+        });
 
         return view;
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        if (requestCode == PermissionProvider.REQUEST_LOCATION_CODE) {
-            if (requestCode == PermissionProvider.REQUEST_CALL_CODE) {
-                if (PermissionProvider.arePermissionsProvided(grantResults))
-                    callAction();
-                else
-                    Toast.makeText(getContext(), R.string.accept_permissions, Toast.LENGTH_SHORT).show();
-            }
+        if (requestCode == PermissionProvider.REQUEST_CALL_CODE) {
+            if (PermissionProvider.arePermissionsProvided(grantResults))
+                callAction();
+            else
+                Toast.makeText(getContext(), R.string.accept_permissions, Toast.LENGTH_SHORT).show();
+        }
+        else if (requestCode == PermissionProvider.REQUEST_LOCATION_CODE) {
+            if(PermissionProvider.arePermissionsProvided(grantResults))
+                navigateAction();
+            else
+                Toast.makeText(getContext(), R.string.accept_permissions, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -79,6 +91,8 @@ public class AboutFragment extends Fragment {
         if(PermissionProvider.arePermissionsGranted(getActivity(), permissionCode)) {
             if(permissionCode == PermissionProvider.REQUEST_CALL_CODE)
                 callAction();
+            else if(permissionCode == PermissionProvider.REQUEST_LOCATION_CODE)
+                navigateAction();
         }
         else if(PermissionProvider.isRequiredVersion()) {
             requestPermissions(PermissionProvider.requiredPermissions(getActivity(), permissionCode), permissionCode);
@@ -94,5 +108,10 @@ public class AboutFragment extends Fragment {
     private void messageAction() {
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", EMAIL, null));
         startActivity(Intent.createChooser(intent, getContext().getString(R.string.send_mail)));
+    }
+
+    private void navigateAction() {
+        Intent intent = new Intent(getContext(), NavigateActivity.class);
+        startActivity(intent);
     }
 }
