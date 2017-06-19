@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.maciej_nowak.mycv.R;
@@ -22,6 +23,11 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 
     private Context context;
     private List<Project> list;
+
+    public ProjectAdapter(Context context) {
+        this.context = context;
+        this.list = setDefaultData();
+    }
 
     public ProjectAdapter(Context context, List<Project> list) {
         this.context = context;
@@ -47,6 +53,30 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public List<Project> setDefaultData() {
+        List<Project> list = new ArrayList<>();
+
+        int[] placetagImages = {R.drawable.placetag_1, R.drawable.placetag_2, R.drawable.placetag_3};
+        list.add(new Project("Placetag",
+                "Set your spot application",
+                R.drawable.logo_placetag,
+                placetagImages));
+
+        int[] songbookImages = {R.drawable.songbook_1, R.drawable.songbook_2, R.drawable.songbook_3};
+        list.add(new Project("Songbook",
+                "Interactive songbook application for music bands, mainly for keyboard players",
+                R.drawable.logo_songbook,
+                songbookImages));
+
+        int[] kindleImages = {R.drawable.kindle_1, R.drawable.kindle_2, R.drawable.kindle_3};
+        list.add(new Project("Push to Kindle",
+                "Application for sending website to Kindle device",
+                R.drawable.logo_push_to_kindle,
+                kindleImages));
+
+        return list;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

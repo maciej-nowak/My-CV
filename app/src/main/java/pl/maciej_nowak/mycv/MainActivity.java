@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import pl.maciej_nowak.mycv.about.AboutFragment;
 import pl.maciej_nowak.mycv.experience.ExperienceFragment;
+import pl.maciej_nowak.mycv.project.ProjectFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(ExperienceFragment.newInstance(), ExperienceFragment.TAG);
                     return true;
                 case R.id.navigation_projects:
-                    //todo attach projects fragment
+                    replaceFragment(ProjectFragment.newInstance(), ProjectFragment.TAG);
                     return true;
             }
             return false;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(0);
+        replaceFragment(AboutFragment.newInstance(), AboutFragment.TAG);
     }
 
     private void replaceFragment(Fragment fragment, String TAG) {

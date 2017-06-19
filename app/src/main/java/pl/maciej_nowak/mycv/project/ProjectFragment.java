@@ -17,6 +17,7 @@ public class ProjectFragment extends Fragment {
 
     public static final String TAG = "AboutFragment";
     private RecyclerView recyclerView;
+    private ProjectAdapter adapter;
 
     public ProjectFragment() {
     }
@@ -31,6 +32,7 @@ public class ProjectFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adapter = new ProjectAdapter(getContext());
         if (getArguments() != null) {
         }
     }
@@ -39,6 +41,7 @@ public class ProjectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_project, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.project_container);
+        recyclerView.setAdapter(adapter);
         return view;
     }
 }
