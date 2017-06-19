@@ -37,5 +37,6 @@
     <string name="network_turn_on">Turn on internet connection and try again.</string>
     <string name="navigate_located">Espeo Software is away</string>
     <string name="navigate_distance_unknown">Unknown</string>
+    <string name="navigate_no_data">No data available</string>
 
 </resources>

@@ -12,6 +12,7 @@ public interface NavigateView {
 
     void displayMap(Coordinates coordinates);
     void displayDistance(Location location);
-    void displayError(String error);
+    void displayErrorMap(String error);
+    void displayErrorDistance(String error);
     void onNetworkState(boolean isEnable);
 }
