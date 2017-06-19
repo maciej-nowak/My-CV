@@ -8,6 +8,8 @@
     <string name="action_call_me">Call me</string>
     <string name="action_message">Message</string>
     <string name="action_explore">Explore Espeo</string>
+    <string name="action_navigate">Navigate</string>
+    <string name="action_try_again">Try again</string>
 
     <string name="skills">Skills</string>
     <string name="interests">Interests</string>
@@ -31,5 +33,9 @@
 
     <string name="accept_permissions">Please agree all request permission to navigate to Espeo</string>
     <string name="send_mail">Send email...</string>
+
+    <string name="network_turn_on">Turn on internet connection and try again.</string>
+    <string name="navigate_located">Espeo Software is away</string>
+    <string name="navigate_distance_unknown">Unknown</string>
 
 </resources>

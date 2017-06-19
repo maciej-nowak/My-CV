@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/navigate_content"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/navigate_map"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/navigate_mapview_height" />
+
+        <TextView
+            android:id="@+id/navigate_distance_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/navigate_description_padding_top"
+            android:paddingBottom="0dp"
+            style="@style/navigate_text"
+            android:text="@string/navigate_located"/>
+
+        <TextView
+            android:id="@+id/navigate_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/activity_vertical_margin"
+            style="@style/navigate_distance"/>
+
+        <Button
+            android:id="@+id/navigate_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="@dimen/about_button_padding"
+            android:paddingRight="@dimen/about_button_padding"
+            android:layout_marginTop="@dimen/about_button_margin_top"
+            style="@style/Widget.AppCompat.Button"
+            android:text="@string/action_navigate"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navigate_content_error"
+        android:padding="@dimen/activity_vertical_margin"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/navigate_error_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            style="@style/about_text"
+            android:text="@string/network_turn_on"/>
+
+        <Button
+            android:id="@+id/navigate_try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="@dimen/about_button_padding"
+            android:paddingRight="@dimen/about_button_padding"
+            android:layout_marginTop="@dimen/about_button_margin_top"
+            style="@style/Widget.AppCompat.Button"
+            android:text="@string/action_try_again"/>
+
+    </LinearLayout>
+
+</FrameLayout>

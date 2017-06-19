@@ -12,5 +12,10 @@ public class NavigateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigate);
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content, NavigateFragment.newInstance(), NavigateFragment.TAG)
+                .commit();
+
     }
 }
