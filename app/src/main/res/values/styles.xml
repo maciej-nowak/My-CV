@@ -32,4 +32,22 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <!-- ITEM EXPERIENCE -->
+    <style name="experience_item_title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="experience_item_subtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="experience_item_extra">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@android:color/tertiary_text_dark</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
 </resources>
