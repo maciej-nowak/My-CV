@@ -31,8 +31,8 @@
         I listen to music every day and in free time watch movies.
     </string>
 
-    <string name="accept_permissions">Please agree all request permission to navigate to Espeo</string>
-    <string name="send_mail">Send email...</string>
+    <string name="accept_permissions">Please agree all request permission</string>
+    <string name="send_mail">Send email…</string>
 
     <string name="network_turn_on">Turn on internet connection and try again.</string>
     <string name="navigate_located">Espeo Software is away</string>
