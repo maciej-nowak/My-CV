@@ -3,7 +3,7 @@ My Curriculum Vitae in Android application. It presents my skills, interests, pr
 
 
 ## App
-App has 4 views: About, Experience, Projects and Explore Espeo. It just allows to see info details actual at 01.2017.
+App has 4 views: About, Experience, Projects and Explore Espeo. It just allows to see info details actual at 01.2017 and also to do some action like call, send SMS or navigate from current position to Espeo.
 
 ### Screenshots
 App looks like as screenshots below.
